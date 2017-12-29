@@ -1,4 +1,6 @@
-﻿namespace OverrideDuck
+﻿using System;
+
+namespace OverrideDuck
 {
     public class Duck
     {
@@ -13,6 +15,11 @@
             Type = type;
             WeightInGrams = weightInGrams;
             AgeInMonths = ageInMonths;
+        }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Type: {Type}, Weight: {WeightInGrams}g, Age: {AgeInMonths}m";
         }
     }
 }
