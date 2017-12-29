@@ -2,7 +2,7 @@
 
 namespace OverrideDuck
 {
-    public class Duck
+    public class Duck : IEquatable<Duck>
     {
         public string Name { get; }
         public string Type { get; }
@@ -20,6 +20,28 @@ namespace OverrideDuck
         public override string ToString()
         {
             return $"Name: {Name}, Type: {Type}, Weight: {WeightInGrams}g, Age: {AgeInMonths}m";
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Duck)obj);
+        }
+
+        public bool Equals(Duck other)
+        {
+            return Name == other.Name && Type == other.Type && WeightInGrams == other.WeightInGrams && AgeInMonths == other.AgeInMonths;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = Name.GetHashCode();
+            hash = (hash * 31) + Type.GetHashCode();
+            hash = (hash * 31) + WeightInGrams.GetHashCode();
+            hash = (hash * 31) + AgeInMonths.GetHashCode();
+            return hash;
         }
     }
 }
