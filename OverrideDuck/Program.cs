@@ -20,6 +20,8 @@ namespace OverrideDuck
             Console.WriteLine(quack);
             Console.WriteLine($"quack equals quack2: {quack.Equals(quack2)}");
             Console.WriteLine($"quack equals donald: {quack.Equals(donald)}");
+            Console.WriteLine($"quack == quack2: {quack == quack2}");
+            Console.WriteLine($"quack != donald: {quack != donald}");
             Console.WriteLine($"Datetime donald was added to dictionary: {dict[donald]}");
             Console.ReadLine();
         }
