@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OverrideDuck
 {
@@ -18,11 +19,26 @@ namespace OverrideDuck
             };
 
             Console.WriteLine(quack);
-            Console.WriteLine($"quack equals quack2: {quack.Equals(quack2)}");
+
+            Console.WriteLine($"\nquack equals quack2: {quack.Equals(quack2)}");
             Console.WriteLine($"quack equals donald: {quack.Equals(donald)}");
             Console.WriteLine($"quack == quack2: {quack == quack2}");
             Console.WriteLine($"quack != donald: {quack != donald}");
-            Console.WriteLine($"Datetime donald was added to dictionary: {dict[donald]}");
+
+            Console.WriteLine($"\nDatetime donald was added to dictionary: {dict[donald]}");
+
+            Console.WriteLine($"\nOldest first:");
+            foreach (var duck in dict.OrderByDescending(d => d.Key, Duck.AgeComparer))
+            {
+                Console.WriteLine(duck.Key);
+            }
+
+            Console.WriteLine($"\nHeaviest first:");
+            foreach (var duck in dict.OrderByDescending(d => d.Key, Duck.WeightComparer))
+            {
+                Console.WriteLine(duck.Key);
+            }
+
             Console.ReadLine();
         }
     }
