@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OverrideDuck
 {
@@ -10,6 +6,10 @@ namespace OverrideDuck
     {
         static void Main(string[] args)
         {
+            var quack = new Duck("Sir Quackalot", "Mallard", 100, 17);
+
+            Console.WriteLine(quack);
+            Console.ReadLine();
         }
     }
 }
