@@ -18,7 +18,9 @@ namespace OverrideDuck
                 {donald, DateTime.Now}
             };
 
-            Console.WriteLine(quack);
+            Console.WriteLine($"quack: - {quack}");
+            Console.WriteLine($"quack2: - {quack2}");
+            Console.WriteLine($"donald: - {donald}");
 
             Console.WriteLine($"\nquack equals quack2: {quack.Equals(quack2)}");
             Console.WriteLine($"quack equals donald: {quack.Equals(donald)}");
@@ -30,13 +32,13 @@ namespace OverrideDuck
             Console.WriteLine($"\nOldest first:");
             foreach (var duck in dict.OrderByDescending(d => d.Key, Duck.AgeComparer))
             {
-                Console.WriteLine(duck.Key);
+                Console.WriteLine(duck.Key.Name);
             }
 
             Console.WriteLine($"\nHeaviest first:");
             foreach (var duck in dict.OrderByDescending(d => d.Key, Duck.WeightComparer))
             {
-                Console.WriteLine(duck.Key);
+                Console.WriteLine(duck.Key.Name);
             }
 
             Console.ReadLine();
